@@ -17,7 +17,7 @@ public class EscapeRoom{
 
             System.out.println("Your head throbs. Something is wrong.");
 
-             while (panelRoomAvailable || gasRoomAvailable || bladeRoomAvailable) {
+            while (panelRoomAvailable || gasRoomAvailable || bladeRoomAvailable) {
             playRandomRoom(scanner);
 
             System.out.println("\nYou escape the room—alive.");
@@ -60,17 +60,14 @@ public class EscapeRoom{
 
                 if (input.equals("inspect panel")) {
                     System.out.println("Exposed wires spark violently.");
-                }
-                else if (input.equals("pull red wire") && !powerOff) {
+                } else if (input.equals("pull red wire") && !powerOff) {
                     takeDamage(30);
                     System.out.println("Electricity surges through you!");
-                }
-                else if (input.equals("flip breaker")) {
+                } else if (input.equals("flip breaker")) {
                     powerOff = true;
                     System.out.println("The power shuts down.");
                     break;
-                }
-                else {
+                } else {
                     System.out.println("Nothing happens.");
                 }
             }
@@ -86,13 +83,11 @@ public class EscapeRoom{
                 if (input.equals("breathe") && !ventOpened) {
                     takeDamage(15);
                     System.out.println("The gas burns your lungs.");
-                }
-                else if (input.equals("open vent")) {
+                } else if (input.equals("open vent")) {
                     ventOpened = true;
                     System.out.println("Fresh air rushes in.");
                     break;
-                }
-                else {
+                } else {
                     System.out.println("The gas hisses softly.");
                 }
             }
@@ -108,18 +103,16 @@ public class EscapeRoom{
                 if (input.equals("run through")) {
                     takeDamage(40);
                     System.out.println("Blades slash across your body!");
-                }
-                else if (input.equals("crouch")) {
+                } else if (input.equals("crouch")) {
                     crouched = true;
                     System.out.println("You lower yourself close to the floor.");
-                }
-                else if (crouched && input.equals("move slowly")) {
+                } else if (crouched && input.equals("move slowly")) {
                     System.out.println("You pass safely beneath the blades.");
                     break;
-                }
-                else {
+                } else {
                     System.out.println("The blades spin rapidly.");
                 }
             }
         }
+
 }

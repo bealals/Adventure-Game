@@ -87,7 +87,7 @@ public class Room {
 
         private void roomTwo(){
             System.out.println("You open your eyes, feeling a sharp pain slide up your spine. Glancing down at the surface that brought you here, lights flash on.");
-            
+            System.out.println("As you glance around, you see a room outside the elevator door, with ")
         }
         private String roomThree(){
 
@@ -119,7 +119,16 @@ public class Room {
         private String roomTwelve(){
                 
         }
-        private String roomThirteen(){
+        private String roomThirteen(){      // Death room hehe 13th floor i'm so cool
+            System.out.println("Lying against the corner of the elevator, you stare at the floor that stands before you.");
+            System.out.println("The lights are flickering, making your heart race. You feel a cold sweat before the light shut off completely.");
+            System.out.println("In the darkness, you hear a faint buzzing sound growing louder and louder.");
+            System.out.println("Suddenly, a bright light blinds you, as you feel a sharp pain shoot through your head.");
+            System.out.println("You fall to the ground, clutching your head as the pain intesnifies.");
+            System.out.println("Before you can react...");
+
+            currRoom = 0;
+            return "You dead :p";
                 
         }
         private String roomFourteen(){

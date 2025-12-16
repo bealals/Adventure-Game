@@ -138,6 +138,30 @@ public class Room {
         private String roomTwelve(){
             System.out.println("You slowly stand up, still feeling the shock of being tosses in a mysterious elevator.");
             System.out.println("The elevator doors open, showing a room full of books...a library?");
+            System.out.println("You walk around the strange library, glancing up at the elevator... 12th floor...");
+            System.out.println("Wondering what lies in this library, you choose to explore the different isles.");
+            System.out.println("You pull out a book...it says *@&$^*#&$* on the front...interesting title...");
+            System.out.println("As you turn the corner to the next isle, you look closer at the shelf you are passing. The books don't look the same...");
+
+            System.out.println("Before you can stop yourself, you try to pull out one of the books, only for it to seems stuck in place.");
+            System.out.println("The lighting turns a shade of green, making your stomach nauseous.");
+
+            WaitPuzzle wait = new WaitPuzzle();
+            wait.getDescription();
+            System.out.println("Will you wait for your safety or get away before anything else can go wrong?");
+            String decisionTwelve = scanner.nextLine().toLowerCase();
+            wait.attemptWait();
+
+            if (!wait.equals("true"){
+                System.out.println("You watch as the walls look slanted, realizing that the room is tilting. You hold onto the shelf, but the aged wood cracks, sending you flying back into the elevator.");
+                System.out.println("As the pain flows through your body, you feel a strong tenseness wash over your body.");
+                System.out.println("You feel the elevator creek up, knowing that the next floor lies before you... *ding*");
+            } else {
+                System.out.println("You glance down at the key in your hand, feeling the worn metal oxidizing more every second.");
+                System.out.println("You pocket it, knowing that this weird hellhole isn't going to give you something you won't need...right?");
+
+                currRoom = 14;
+            }
         }
         private String roomThirteen(){      // Death room hehe 13th floor i'm so cool
             System.out.println("Lying against the corner of the elevator, you stare at the floor that stands before you.");

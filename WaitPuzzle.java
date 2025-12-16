@@ -6,10 +6,10 @@ public class WaitPuzzle{
     public boolean attemptWait(String action) {
         if (action.equalsIgnoreCase("wait")) {
             waits++;
-            if (waits < 3) {
+            if (waits < 10) {
                 System.out.println("You wait patiently. Nothing happens.");
                 return false;
-            } else if (waits == 3) {
+            } else if (waits == 10) {
                 System.out.println("A hidden compartment opens, revealing a key!");
                 return true;
             } else {
@@ -20,8 +20,11 @@ public class WaitPuzzle{
             return false;
         }
     }
-
+    
+    @ Override
+    
     public String getDescription() {
         return "A strange device stands before you. Acting too fast might be dangerous.";
     }
+
 }

@@ -82,12 +82,31 @@ public class Room {
                 return;
             }
         }
-
     }
 
         private void roomTwo(){
             System.out.println("You open your eyes, feeling a sharp pain slide up your spine. Glancing down at the surface that brought you here, lights flash on.");
-            System.out.println("As you glance around, you see a room outside the elevator door, with ")
+            System.out.println("As you glance around, you see a room outside the elevator door. Shaking, you choose to step out and explore this secondary area.");
+            System.out.println("The room is small - you can almost see the entirety of it from standing still. There is a table with a candelabra resting on top. A lighter lay peacefully beside it.");
+            System.out.println("Your hands shake as you carefully pick up the lighter.");
+            System.out.println("Would you like to... \n(a) Light the candelabra \n(b) Ignore it...for safety ");
+            String decisionFour = scanner.nextLine().toLowerCase();
+
+            if (decisonFour.equals("a"){
+                System.out.println("You light the candelabra from left to right...");
+                System.out.println("The room begins to shake, and the wall before opens to display a compartment.");
+                hasCrowbar = true;
+                System.out.println("You see the crowbar and decide to take it, just in case...");
+                System.out.println("As you move back to the elevator, crowbar in your hand, you begin to wonder what lies before you now...");
+
+                currRoom = 3;
+            } else if (decisionFour.equals("b"){
+                System.out.println("You decide it's not worth the risk. You turn away and begin walking back to your starting point. Before you reach the elevator doors, you look back and wonder what may have happened if the stakes were lower.");
+                System.out.println("You feel a sense of calm wash over you before the elevator doors slam shut, unlike the way they have been before. You swiftly change your focus to them, before you feel a slight drop in the position."); 
+                System.out.println("Before you can react, you get pushed to the ground as you feel a strong force moving upwards...");
+
+                currRoom = 12;
+            }
         }
         private String roomThree(){
 
@@ -117,7 +136,8 @@ public class Room {
                 
         }
         private String roomTwelve(){
-                
+            System.out.println("You slowly stand up, still feeling the shock of being tosses in a mysterious elevator.");
+            System.out.println("The elevator doors open, showing a room full of books...a library?");
         }
         private String roomThirteen(){      // Death room hehe 13th floor i'm so cool
             System.out.println("Lying against the corner of the elevator, you stare at the floor that stands before you.");

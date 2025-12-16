@@ -92,15 +92,16 @@ public class Room {
             System.out.println("Would you like to... \n(a) Light the candelabra \n(b) Ignore it...for safety ");
             String decisionFour = scanner.nextLine().toLowerCase();
 
-            if (decisonFour.equals("a"){
+            if (decisionFour.equals("a")){
                 System.out.println("You light the candelabra from left to right...");
                 System.out.println("The room begins to shake, and the wall before opens to display a compartment.");
-                hasCrowbar = true;
+                obtainemItem("crowbar");
                 System.out.println("You see the crowbar and decide to take it, just in case...");
                 System.out.println("As you move back to the elevator, crowbar in your hand, you begin to wonder what lies before you now...");
+                System.out.println("*ding*");
 
                 currRoom = 3;
-            } else if (decisionFour.equals("b"){
+            } else if (decisionFour.equals("b")){
                 System.out.println("You decide it's not worth the risk. You turn away and begin walking back to your starting point. Before you reach the elevator doors, you look back and wonder what may have happened if the stakes were lower.");
                 System.out.println("You feel a sense of calm wash over you before the elevator doors slam shut, unlike the way they have been before. You swiftly change your focus to them, before you feel a slight drop in the position."); 
                 System.out.println("Before you can react, you get pushed to the ground as you feel a strong force moving upwards...");
@@ -109,16 +110,100 @@ public class Room {
             }
         }
         private String roomThree(){
+            System.out.println("As the door opens in front of you, you feel a weird sensation. It feels rather warm, almost like being back in your bed.");
+            System.out.println("You step out of the elevator, feeling the soft carpet beneath your feet. As you glance around, you see a cozy room with a fireplace, a comfy chair, and a vintage bookshelf.");
+            System.out.println("You look down at the crowbar in your hand, wondering if it will be useful here.");
+            System.out.println("Would you like to... \n(a) Inspect the fireplace \n(b) Check out the bookshelf ");
 
+            String decisionFive = scanner.nextLine().toLowerCase();
+
+            if (decisionFive.equals("a")){
+                System.out.println("You approach the fireplace, noticing the warm glow of the flames. As you get closer, you see something shiny in the ashes...");
+                System.out.println("You tap at it with your crowbar, feeling the hot metal against your palms.");
+                takeDamage(5);
+                System.out.println("You notice that it's a cabinet! You stick your crowbar into the small gap and attempt to pry it open.");
+                System.out.println("Unfortunately, the cabinet is stuck tight. You decide to leave it alone for now, choosing to further explore this room...");
+            } else if (decisionFive.equals("b")){
+                System.out.println("You walk over to the bookshelf, running your fingers along the spines of the books. One of them catches your eye...");
+                System.out.println("It's a book about the history of this building. As you scroll through the pages, a small note falls out.");
+                obtainItem("codeNote");
+                System.out.println("Pocketing the note, you choose to further your exploration of this calming room...");
+                System.out.println("You feel good about the stuff you've found so far. You head back to the elevator, awaiting for where it will take you next...");
+                currRoom = 4;
+                break;
+            }
+
+            System.out.println("You begin to feel drowsy, the warmth of the room lulling you into a sense of comfort. You decide to sit in the comfy chair for a moment, closing your eyes.");
+            System.out.println("As you doze off, you feel the room begin to spin. You try to stand up, but the world around you fades to black...");
+            System.out.println("*ding*");
+
+            currRoom = 5;
         }
         private String roomFour(){
+            System.out.println("You step out of the elevator, feeling a cool breeze brush past your face. The room before you is vast, with high ceilings and ornate decorations.");
+            System.out.println("As you look around, you notice a grand staircase leading up to a balcony. There are also several doors lining the walls.");
+            System.out.println("Would you like to... \n(a) Explore the balcony \n(b) Check out the doors ");
 
+            String decisionSix = scanner.nextLine().toLowerCase();
+
+            if (decisionSix.equals("a")){
+                System.out.println("You ascend the grand staircase, feeling the plush carpet beneath your feet. As you reach the balcony, you see a stunning view of the entire room below.");
+                System.out.println("You notice a small table with a vase of flowers and a note beside it.");
+                obtainItem("potion");
+                System.out.println("You pick up the note, which reads: 'For those in need of healing, take this potion.' You pocket the potion, feeling grateful for the unexpected gift.");
+                System.out.println("After taking in the view, you decide to head back down and explore the rest of the room...");
+            } else if (decisionSix.equals("b")){
+                System.out.println("You approach one of the doors lining the walls, feeling curious about what lies beyond. You try the handle, and to your surprise, it opens easily.");
+                System.out.println("Inside, you find a small study filled with books and papers. On the desk, there's a flashlight resting beside a stack of documents.");
+                obtainItem("flashlight");
+                System.out.println("You pick up the flashlight, knowing it will be useful in dark places. After exploring the study, you decide to head back to the elevator...");
+            }
+
+            System.out.println("Feeling satisfied with your exploration, you make your way back to the elevator, wondering where it will take you next...");
+            currRoom = 6;
         }
         private String roomFive(){
+            System.out.println("You awaken to find yourself in a dimly lit room, the walls adorned with strange symbols that seem to glow faintly.");
+            System.out.println("You glance down and realize that you're still on the same comfy couch from before, but the room feels different now.");
+            
+            EscapeRoom.start(playRandomRoom());
 
+            if (isAlive()){
+                System.out.println("You manage to survive the dangers of the room, feeling a sense of relief wash over you.");
+                System.out.println("As you catch your breath, you notice a small key lying on the floor beside you.");
+                obtainItem("key");
+                System.out.println("You pick up the key, wondering what it might unlock in this mysterious place.");
+                System.out.println("Feeling determined, you make your way back to the elevator, eager to continue your journey...");
+                currRoom = 7;
+            } else {
+                System.out.println("Your vision fades to black as you succumb to the dangers of the room. You feel a coldness enveloping you as everything goes silent.");
+                currRoom = 0;
+            }
         }
         private String roomSix(){
-                
+            System.out.println("You walk out of the elevator, looking at a bright utopia that stands before you.");
+            System.out.println("The sky is a perfect shade of blue, with fluffy white clouds drifting lazily across it.");
+            System.out.println("Birds chirp happily in the trees, and a waterfall cascades down a rocky cliff in the distance.");
+            System.out.println("You take a deep breath, feeling the fresh air fill your lungs.");
+            System.out.println("As you explore this beautiful place, you notice a small cottage nestled among the trees.");
+            System.out.println("Curious, you decide to approach it...");
+            System.out.println("By the time you reach it, you try to open the door. The door isn't a door at all");
+            System.out.println("*ding*");
+            System.out.println("You look back the elevator you came from, then back at this new one.");
+            System.out.println("Do you want to enter the new elevator or go back to the previous one? (new/old)");
+            String decisionSeven = scanner.nextLine().toLowerCase();
+
+            if (decisionSeven.equals("new")){
+                System.out.println("You step into the new elevator, feeling a sense of anticipation.");
+                System.out.println("As the doors close, you feel a strange sensation, as if the elevator is moving sideways rather than up or down.");
+                System.out.println("You brace yourself for whatever lies ahead...");
+                currRoom = 14;
+            } else if (decisionSeven.equals("old")){
+                System.out.println("You decide to return to the previous elevator, as you're far more familiar with it.");
+            }
+            System.out.println("You step back into the old elevator, feeling a sense of relief as the doors close behind you.");
+            currRoom = 14;
+            return decisionSeven;
         }
         private String roomSeven(){
                 
@@ -152,7 +237,7 @@ public class Room {
             String decisionTwelve = scanner.nextLine().toLowerCase();
             wait.attemptWait();
 
-            if (!wait.equals("true"){
+            if (!wait.equals("true")) {
                 System.out.println("You watch as the walls look slanted, realizing that the room is tilting. You hold onto the shelf, but the aged wood cracks, sending you flying back into the elevator.");
                 System.out.println("As the pain flows through your body, you feel a strong tenseness wash over your body.");
                 System.out.println("You feel the elevator creek up, knowing that the next floor lies before you... *ding*");
@@ -197,6 +282,5 @@ public class Room {
                 
         }
     }
-
 
 

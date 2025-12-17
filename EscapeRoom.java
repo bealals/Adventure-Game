@@ -1,9 +1,13 @@
 import java.util.Scanner;
+// This class implements some danger into the game... there are three different types of rooms, which can all cause fatal outcomes
+// There are different actions that the player can act on, being powering off, opening a vent, and crouching. All of these things will be necessary for their survival
+// The different escape rooms aren't supposed to show up in any specific order either, since I implemented a method, in which case I can randomize the choosing of the rooms (not using lists)
+// After a room is chosen, it is removed from the options so that no one spends the entirety of their game repeating the same room
 
 public class EscapeRoom {
 
     private Player player;
-
+    // sets as default
     private boolean powerOff = false;
     private boolean ventOpened = false;
     private boolean crouched = false;
@@ -16,6 +20,7 @@ public class EscapeRoom {
         this.player = player;
     }
 
+    // This is the main section where everything starts and then it implements the rest of the features
     public boolean start() {
         Scanner scanner = new Scanner(System.in);
 
@@ -36,7 +41,7 @@ public class EscapeRoom {
         return true;
     }
         
-
+    // This randomizes the rooms and removes it each time the room is chosen
     private void playRandomRoom(Scanner scanner) {
         int choice;
 
@@ -104,7 +109,7 @@ public class EscapeRoom {
             }
         }
     }
-
+    
     private void bladeDoor(Scanner scanner) {
         System.out.println("\nSpinning blades block the exit door.");
 
@@ -127,3 +132,4 @@ public class EscapeRoom {
         }
     }       
 }
+

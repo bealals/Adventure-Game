@@ -1,108 +1,98 @@
 public class Player{
+    
     private String name;
     private int health;
     private int maxHealth;
 
-    private boolean hasKey;
+    private boolean hasRustyKey;
     private boolean hasFlashlight;
     private boolean hasCodeNote;
     private boolean hasCrowbar;
     private boolean hasPotion;
-
-    private int puzzleSolved;
-    private boolean escape;
+    private boolean hasGoldenKey;
+    private boolean escaped;
 
     public Player(String name){
         this.name = name;
-        this.maxHealth = 100;
-        this.health = this.maxHealth;
-        this.hasKey = false;
-        this.hasFlashlight = false;
-        this.hasCodeNote = false;
-        this.hasCrowbar = false;
-        this.puzzleSolved = 0;
-        this.escape = false;
+        maxHealth = 100;
+        health = maxHealth;
+
+        hasRustyKey = false;
+        hasGoldenKey = false;
+        hasFlashlight = false;
+        hasCodeNote = false;
+        hasCrowbar = false;
+        hasPotion = false;
+
+        escaped = false;
     }
 
     public void takeDamage(int damage){
-        this.health -= damage;
-        if(this.health <= 0){
-            this.health = 0;
+        health -= damage;
+        if(health <= 0){
+            health = 0;
         }
-        System.out.println(this.name + " took " + damage + " damage. Current health: " + this.health);
+        System.out.println(name + " took " + damage + " damage. Current health: " + health);
     }
 
     public void heal(int amount){
-        this.health += amount;
-        if(this.health > this.maxHealth){
-            this.health = this.maxHealth;
+        health += amount;
+        if(health > maxHealth){
+            health = maxHealth;
         }
-        System.out.println(this.name + " healed " + amount + " health. Current health: " + this.health);
+        System.out.println(name + " healed " + amount + " health. Current health: " + health);
     }
 
     public boolean isAlive(){
-        return this.health > 0;
+        return health > 0;
     }
 
-    public void obtainItem(String item){
+    public int getHealth(){
+        return health;
+    }
+
+    public int getMaxHealth(){
+        return maxHealth;
+    }
+
+    public void obtain(String item){
         switch(item.toLowerCase()){
-            case "key":
-                this.hasKey = true;
-                System.out.println(this.name + " obtained a key.");
-                break;
-            case "flashlight":
-                this.hasFlashlight = true;
-                System.out.println(this.name + " obtained a flashlight.");
-                break;
-            case "codenote":
-                this.hasCodeNote = true;
-                System.out.println(this.name + " obtained a code note.");
-                break;
-            case "crowbar":
-                this.hasCrowbar = true;
-                System.out.println(this.name + " obtained a crowbar.");
-                break;
-            case "potion":
-                this.hasPotion = true;
-                System.out.println(this.name + " obtained a potion.");
-                break;
-            default:
-                System.out.println("Unknown item: " + item);
+            case "rusty key": hasRustyKey = true; break;
+            case "flashlight": hasFlashlight = true; break;
+            case "codenote": hasCodeNote = true; break;
+            case "crowbar": hasCrowbar = true; break;
+            case "potion": hasPotion = true; break;
+            case "golden key": hasGoldenKey = true; break;
         }
+        System.out.println("Obtained: " + item);
     }
 
-    public void solvedPuzzle(){
-        this.puzzleSolved++;
-    }
-
-    public boolean canOpen(){
-        return this.hasKey && this.puzzleSolved >= 3;
+    public boolean has(String item){
+        switch(item.toLowerCase()){
+            case "rusty key": return hasRustyKey;
+            case "flashlight": return hasFlashlight;
+            case "codenote": return hasCodeNote;
+            case "crowbar": return hasCrowbar;
+            case "potion": return hasPotion;
+            case "golden key": return hasGoldenKey;
+        }
+        return false;
     }
 
     public void escape(){
-        if(this.canOpen()){
-            this.escape = true;
-            System.out.println(this.name + " has escaped!");
-        } else {
-            System.out.println(this.name + " cannot escape yet.");
-        }
+        escaped = true;
     }
 
     public boolean hasEscaped(){
-        return this.escape;
+        return escaped;
     }
 
     public void showStats(){
-        System.out.println("----- *** Player Stats *** -----");
-        System.out.println("Player: " + this.name);
-        System.out.println("Health: " + this.health + "/" + this.maxHealth);
-        System.out.println("Has Key: " + this.hasKey);
-        System.out.println("Has Flashlight: " + this.hasFlashlight);
-        System.out.println("Has Code Note: " + this.hasCodeNote);
-        System.out.println("Has Crowbar: " + this.hasCrowbar);
-        System.out.println("Has Potion: " + this.hasPotion);
-        System.out.println("Puzzles Solved: " + this.puzzleSolved);
-        System.out.println("Has Escaped: " + this.escape);
-        System.out.println("--------------------------------");
+        System.out.println("\n--- PLAYER STATS ---");
+        System.out.println("Name: " + name);
+        System.out.println("Golden Key: " + hasGoldenKey);
+        System.out.println("Health: " + health + "/" + maxHealth);
+        System.out.println("Escaped: " + escaped);
+        System.out.println("-------------------");
     }
 }

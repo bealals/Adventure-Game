@@ -1,30 +1,35 @@
-public class WaitPuzzle{
+public class WaitPuzzle {
 
-    private int waits = 0;
-    private boolean attemptWait = false;
+    private long startTime = -1;
+    private boolean solved = false;
 
-    public boolean attemptWait(String action) {
-        if (action.equalsIgnoreCase("wait")) {
-            waits++;
-            if (waits < 10) {
-                System.out.println("You wait patiently. Nothing happens.");
-                return false;
-            } else if (waits == 10) {
-                System.out.println("A hidden compartment opens, revealing a key!");
-                return true;
-            } else {
-                System.out.println("You have already found the key. There's nothing more to do here.");
-                return true;
-            }
-        } else {
+    public boolean attemptWait() {
+        long currentTime = System.currentTimeMillis();
+
+        if (solved) {
+            System.out.println("The compartment is already open.");
+            return true;
+        }
+
+        if (startTime == -1) {
+            startTime = currentTime;
+            System.out.println("You decide to wait...");
             return false;
         }
-    }
-    
-    @ Override
-    
-    public String getDescription() {
-        return "A strange device stands before you. Acting too fast might be dangerous.";
+
+        long secondsWaited = (currentTime - startTime) / 1000;
+
+        if (secondsWaited >= 10) {
+            System.out.println("After waiting patiently, a hidden compartment opens!");
+            solved = true;
+            return true;
+        }
+
+        System.out.println("You have waited " + secondsWaited + " seconds...");
+        return false;
     }
 
+    public String getDescription() {
+        return "A strange device hums quietly. Waiting may be the key.";
+    }
 }

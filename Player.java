@@ -1,4 +1,8 @@
 public class Player{
+    // This class is meant to act as an inventory almost, but also the overall standard for the player. As they move throughout the rooms/floors,
+    // they are faced with different items that they can obtain, and for some of it, it's required for them to have said item in order to complete certain tasks.
+    // Along with that, there is their typical health status which shows how well off the player is doing in regards to their progress.
+    // Finally, at the bottom, there is a method to show the player's statistics, in which case they can pull up whenever they so please and will automatically show up at the end of the gameplay.
     
     private String name;
     private int health;
@@ -12,6 +16,7 @@ public class Player{
     private boolean hasGoldenKey;
     private boolean escaped;
 
+    // sets everything to default
     public Player(String name){
         this.name = name;
         maxHealth = 100;
@@ -96,3 +101,4 @@ public class Player{
         System.out.println("-------------------");
     }
 }
+

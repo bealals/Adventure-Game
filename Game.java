@@ -1,5 +1,6 @@
 import java.util.Scanner;
-
+// This is the main runner class. It asks for the person's name before starting up with the gameplay.
+// From there, it implements the Room.java class, which includes every other special class I have chosen to include
 public class Game{
 
     public static void main(String[] args){
@@ -20,9 +21,10 @@ public class Game{
 
         System.out.print("Start the game? (y/n): ");
         if (scanner.nextLine().equalsIgnoreCase("y")){
-            room.start();
+            room.start(); // starts game
         }
 
+        // this is portrayed if the character reaches room 20 or just dies, depends on which one happens first
         if (player.hasEscaped()){
             System.out.println("Congratulations! You have successfully escaped the room!");
         } else {

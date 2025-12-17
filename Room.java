@@ -1,11 +1,15 @@
 import java.util.Scanner;
-
+// This is my big boy class - it incorportates every class that isn't the Game.java class, since the Game.java class relies soley on this one
+// All the rooms are decided into their own specific methods, using switch-case as a means for moving smoothly in between classes, 
+// also allowing for the person to jump between rooms without a certain order being necessary
+// Most of the rooms feature a good amount of dialogue, since I want this to be an interactive experience where the player feels like they're too intruiged to not cotinue playing
 public class Room {
 
     private Player player;
     private static Scanner scanner = new Scanner(System.in);
     public int currRoom = 1;
 
+    // this ensures that none of the escape rooms repeat
     private boolean escapeRoomOneUsed;
     private boolean escapeRoomTwoUsed;
     private boolean escapeRoomThreeUsed;
@@ -39,6 +43,7 @@ public class Room {
         this.player = player;
     }
 
+    // This allows for people to properly switch between rooms
     public void start(){
         while (currRoom > 0){
             switch (currRoom) {
@@ -698,7 +703,7 @@ public class Room {
                 }
             }
         }
-        private void roomTwenty(){
+        private void roomTwenty(){ // this is the end room, allowing for the person to finally escape
             System.out.println("You feel the warm, familiar embrace of the sun glide against your skin.\nThe gentle rustling of leaves and the melodious chirping of birds create a serene symphony around you.");
             System.out.println("As you take a deep breath, the fresh air fills your lungs, invigorating your senses.");
             System.out.println("You realize you've made it out of the elevator's grasp, stepping into a beautiful outdoor setting.");

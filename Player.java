@@ -3,7 +3,8 @@ public class Player{
     // they are faced with different items that they can obtain, and for some of it, it's required for them to have said item in order to complete certain tasks.
     // Along with that, there is their typical health status which shows how well off the player is doing in regards to their progress.
     // Finally, at the bottom, there is a method to show the player's statistics, in which case they can pull up whenever they so please and will automatically show up at the end of the gameplay.
-    
+    NewRoom room = new NewRoom(this); // create a new room instance for the player to interact with
+
     private String name;
     private int health;
     private int maxHealth;
@@ -15,6 +16,9 @@ public class Player{
     private boolean hasPotion;
     private boolean hasGoldenKey;
     private boolean escaped;
+    private int playerX; // player's current X position on the map
+    private int playerY; // player's current Y position on the map
+    private int currRoom(playerX, playerY); // player's current room number
 
     // sets everything to default
     public Player(String name){
@@ -95,10 +99,10 @@ public class Player{
     public void showStats(){
         System.out.println("\n--- PLAYER STATS ---");
         System.out.println("Name: " + name);
+        System.out.println("Current Room: " + room.describeCurrentRoom());
         System.out.println("Golden Key: " + hasGoldenKey);
         System.out.println("Health: " + health + "/" + maxHealth);
         System.out.println("Escaped: " + escaped);
         System.out.println("-------------------");
     }
 }
-
